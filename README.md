@@ -1,61 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Arch Linux: Flatpak Vinegar Studio Guide</title>
-</head>
 <body>
     <h1 align="center">
         <img src="https://github.com/Nightro-Fx/Flatpak-Vinegar-Guide/blob/main/img/Flathub.png" width="40" alt="Logo"/> 
-        Arch Linux: Flatpak Vinegar Studio Guide
+        Flatpak Vinegar Studio Guide
     </h1>
+</html>
 
-    <h4>❤️ Acknowledgements</h4>
-    <p>
-        Special thanks to <a href="https://vinegarhq.org/">VinegarHQ</a> for creating the Vinegar launcher.<br/>
-        This guide is based on the original by 
-        <a href="https://github.com/Nightro-Fx/Flatpak-Vinegar-Guide">Nightro-Fx</a>.<br/>
-        Further support is available via the support server: 
-        <a href="https://discord.gg/kNHaaFsGZ2">Join Here</a>.
-    </p>
+#### ❤️ Acknowledgements  
+Thank you [VinegarHQ](https://vinegarhq.org/) for making this guide possible. Further support will be provided over Nightro-Fx's support server, [Here](https://discord.gg/kNHaaFsGZ2).
 
-    <h5>✅ Installing Roblox Studio via Flatpak on Arch</h5>
-    <pre><code>sudo pacman -Syu
-sudo pacman -S flatpak gnome-software --needed
+##### Installing Roblox Studio from Flatpak
+```bash
+sudo pacman -Syu
+sudo pacman -S gnome-software
+sudo pacman -S flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub org.vinegarhq.Vinegar -y
 flatpak run org.vinegarhq.Vinegar
-    </code></pre>
-
-    <h5>📦 Adding 3D Model Support (Filesystem Access)</h5>
-    <pre><code>flatpak override --user --filesystem=home org.vinegarhq.Vinegar
+```
+##### Adding 3D Models to Roblox Studio
+```
+flatpak override --user --filesystem=home org.vinegarhq.Vinegar
 flatpak override --user --show org.vinegarhq.Vinegar
-    </code></pre>
+```
+>[!TIP]
+> By default, Your C-Drive named *drive_c* is located at `~/.var/app/org.vinegarhq.Vinegar/data/vinegar/prefixes/studio`, where you can copy your models to.
 
-    <blockquote>
-        <strong>TIP:</strong> Your <em>drive_c</em> is located at:<br/>
-        <code>~/.var/app/org.vinegarhq.Vinegar/data/vinegar/prefixes/studio</code><br/>
-        Place models or local assets here if needed.
-    </blockquote>
+##### Configuring Vinegar
+<img src="https://github.com/Nightro-Fx/Flatpak-Vinegar-Guide/blob/main/img/Main%20Menu.png" width="270" alt="Logo"/> <img src="https://github.com/Nightro-Fx/Flatpak-Vinegar-Guide/blob/main/img/Config%20Menu.png" width="270" alt="Logo"/> <img src="https://github.com/Nightro-Fx/Flatpak-Vinegar-Guide/blob/main/img/Documentation.png" width="270" alt="Logo"/> 
 
-    <h5>⚙️ Configuring Vinegar (Enable Vulkan)</h5>
-    <pre><code>[studio]
+##### Configuration of Vinegar
+```
+[studio]
 renderer = "Vulkan"
-    </code></pre>
+```
+>[!IMPORTANT]
+> Refer to the Official Vinegar Documentation for Configuration Details:
+> [Vinegar Configuration Guide](https://vinegarhq.org/Configuration/)
 
-    <p>
-        <img src="https://github.com/Nightro-Fx/Flatpak-Vinegar-Guide/blob/main/img/Main%20Menu.png" width="270" alt="Main Menu"/>
-        <img src="https://github.com/Nightro-Fx/Flatpak-Vinegar-Guide/blob/main/img/Config%20Menu.png" width="270" alt="Config Menu"/>
-        <img src="https://github.com/Nightro-Fx/Flatpak-Vinegar-Guide/blob/main/img/Documentation.png" width="270" alt="Documentation"/>
-    </p>
-
-    <blockquote>
-        <strong>IMPORTANT:</strong> See the official documentation:<br/>
-        <a href="https://vinegarhq.org/Configuration/">Vinegar Configuration Guide</a>
-    </blockquote>
-
-    <h5>🚀 Optional: FastFlag Performance Tweaks</h5>
-    <pre><code>[studio.fflags]
+##### Adding Performance FastFlags To Studio (Optional)
+```
+[studio.fflags]
 DFIntTaskSchedulerTargetFps = 120
 FIntRenderShadowIntensity = 0
 FIntRenderLocalLightUpdatesMax = 8
@@ -68,6 +53,4 @@ FIntRenderGrassHeightScaler = 0
 DFIntDebugFRMQualityLevelOverride = 1
 FFlagGlobalWindRendering = False  
 FFlagGlobalWindActivated = False  
-    </code></pre>
-</body>
-</html>
+```
