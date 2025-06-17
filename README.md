@@ -54,3 +54,7 @@ DFIntDebugFRMQualityLevelOverride = 1
 FFlagGlobalWindRendering = False  
 FFlagGlobalWindActivated = False  
 ```
+
+##### Credits  
+This guide contains a straightforward modification that many users might not know how to perform.  
+Special thanks to [Nightro-Fx](https://github.com/Nightro-Fx) for developing the original Debian/Ubuntu version.
