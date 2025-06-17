@@ -14,7 +14,7 @@ sudo pacman -Syu
 sudo pacman -S gnome-software
 sudo pacman -S flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.vinegarhq.Vinegar -y
+flatpak install flathub org.vinegarhq.Vinegar
 flatpak run org.vinegarhq.Vinegar
 ```
 ##### Adding 3D Models to Roblox Studio
